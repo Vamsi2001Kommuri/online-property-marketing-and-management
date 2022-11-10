@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Property Listing</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /> {% load static %}
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+    </script>
+</head>
+
+<body>
+    {% include "navbar.html" %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title text-center">{{property.property_name}}</h3>
+					</div>
+                    <table class="table table-hover" id="dev-table">
+                        <tr>
+                            <td>
+                                {% if property.property_type == 'Villa' %}
+                                    <img src="/media/villa.jpg" alt="Villa" style="width:20%;">
+                                {% elif  property.property_type == 'Apartment' %}
+                                    <img src="/media/apartment.jpg" alt="Apartment" style="width:20%;">
+                                {% elif  property.property_type == 'Individual House' %}
+                                    <img src="/media/ihouse.jpg" alt="Individual House" style="width:20%;">
+                                {% else %}
+                                <img src="/media/sc.jpg" alt="Shopping Complex" style="width:20%;">
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Property Name : {{property.property_name}}
+                            </td>
+                            <td>
+                                Owner Name : {{property.owner_name}}
+                            </td>
+                            <td>
+                                Property Type : {{property.property_type}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Location : {{property.location}}
+                            </td>
+                            <td>
+                                Landmark : {{property.landmark}}
+                            </td>
+                            <td>
+                                Pincode : {{property.pincode}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title text-center">Book Property</h3>
+					</div>
+                    <form method="post" action="/properties/buyProperty/{{property.id}}/">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Booking For (Mention Full Name)</label>
+                            <input name="name" type="text" class="form-control form-control-danger">
+                        </div>
+                        <div class="form-group">
+                            <label>Amount</label>
+                            <input name="amount" type="text" class="form-control form-control-danger">
+                        </div>
+                        <div class="mx-auto text-center">
+                            <input type="submit" value="Book Property" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+			</div>
+        </div>
+    </div>
+</body>
+</html>

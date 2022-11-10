@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Property Listing</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"> {% load static %}
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+    </script>
+        <style>
+            marquee {
+               font-size: xx-large;
+               font-weight: bolder;
+            }
+        </style>
+</head>
+
+<body>
+    {% include "navbar.html" %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card">
+                    <h4 class="card-header text-center">Add A Property</h4>
+                    <div class="card-block">
+                        <form method="post" action="/properties/listProperty">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Property Name</label>
+                                <input name="property_name" type="text" class="form-control form-control-danger">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "property_name" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="text-danger">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Owner Name</label>
+                                <input name="owner_name" type="text" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "owner_name" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="text-danger">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input name="location" type="text" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "location" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="text-danger">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Landmark</label>
+                                <input name="landmark" type="text" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "landmark" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="text-danger">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Pincode</label>
+                                <input name="pincode" type="number" maxlength="6" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "pincode" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="text-danger">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select name="property_type" id="property_type" class="form-control">
+                                    <option value="Apartment">Apartment</option>
+                                    <option value="Villa">Villa</option>
+                                    <option value="Individual House">Individual House</option>
+                                    <option value="Shopping Complex">Shopping Complex</option>
+                                  </select>
+                            </div>
+                            <div class="mx-auto text-center">
+                                <input type="submit" value="Add Property" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

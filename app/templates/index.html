@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Property Listing</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"> {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+        <style>
+            marquee {
+               font-size: xx-large;
+               font-weight: bolder; 
+            }
+        </style>
+</head>
+
+<body class="bg-info">
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <img class="card-img-top embed-responsive-item"  src="/media/login.jpg" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <h4 class="card-header text-center">Login</h4>
+                    <div class="card-block">
+                        <form method="post" action="/login">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="login_email" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="login_password" type="password" class="form-control">
+                            </div>
+                            <div class="mx-auto text-center">
+                                <input type="submit" value="Login" class="btn btn-primary">
+                            </div>
+                        </form>
+                        <h4 class="text-center">
+                            <b><a href="registration">Click Here</a> for registration</b>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </script>
+</body>
+<br><br>
+<footer>
+    <marquee  scrollamount="30">
+        Book Villas, Apartments, Shopping Complex and Individual Houses
+    </marquee>
+</footer>
+
+</html>

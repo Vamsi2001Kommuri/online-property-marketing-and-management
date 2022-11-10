@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/properties">
+                Property Listing</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li {% if request.path == '/properties'  %}class="active"{% endif %}><a href="/properties">Home</a></li>
+            <li {% if request.path == '/properties/purchase_property'  %}class="active"{% endif %}><a href="/properties/purchase_property">Book Property</a></li>
+            <li {% if request.path == '/properties/purchase_history'  %}class="active"{% endif %}><a href="/properties/purchase_history">All Bookings</a></li>
+            <li {% if request.path == '/properties/properties_history'  %}class="active"{% endif %}><a href="/properties/properties_history">All Properties</a></li>
+            <li {% if request.path == '/properties/add_property'  %}class="active"{% endif %}><a href="/properties/add_property">List Property</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout">
+                <span class="glyphicon glyphicon-log-in"></span>
+                Logout</a></li>
+        </ul>
+    </div>
+</nav>
